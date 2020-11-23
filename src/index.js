@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { ThemeProvider } from 'styled-components';
+import './reset.css';
 import App from './App';
+import { CarouselProvider } from './contexts/CarouselContext';
 import reportWebVitals from './reportWebVitals';
+import { theme } from './styles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <CarouselProvider>
+        <App />
+      </CarouselProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
